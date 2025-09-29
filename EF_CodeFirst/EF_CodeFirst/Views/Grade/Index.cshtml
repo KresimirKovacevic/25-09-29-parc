@@ -22,21 +22,26 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.GradeName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Section)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Student.StudentName)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.GradeId">Details</a>
-            </td>
-        </tr>
+@{
+    var i = 0;
+    foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.GradeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Section)
+        </td>
+        <td>
+            <a asp-area="" asp-controller="Student" asp-action="Details" asp-route-id="@ViewBag.Students[i].StudentId">@ViewBag.Students[i].StudentName</a>
+        </td>
+        <td>
+            <a asp-action="Details" asp-route-id="@item.GradeId">Details</a>
+        </td>
+    </tr>
+    i++;
+    }
 }
     </tbody>
 </table>

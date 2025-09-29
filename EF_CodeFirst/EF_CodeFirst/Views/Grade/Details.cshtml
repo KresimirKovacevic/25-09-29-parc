@@ -23,10 +23,10 @@
             @Html.DisplayFor(model => model.Section)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Student)
+            @Html.DisplayNameFor(model => model.Student.StudentName)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Student.StudentName)
+            @ViewBag.CurrentStudent.StudentName
         </dd>
     </dl>
 </div>

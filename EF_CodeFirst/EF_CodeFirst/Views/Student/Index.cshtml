@@ -28,7 +28,9 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@{
+    var i = 0;
+    foreach (var item in Model) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.StudentName)
@@ -43,12 +45,14 @@
                 @Html.DisplayFor(modelItem => item.Weight)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Grades.Count)
+                @ViewBag.GradeCounts[i]
             </td>
             <td>
                 <a asp-action="Details" asp-route-id="@item.StudentId">Details</a>
             </td>
         </tr>
+        i++;
+    }
 }
     </tbody>
 </table>
